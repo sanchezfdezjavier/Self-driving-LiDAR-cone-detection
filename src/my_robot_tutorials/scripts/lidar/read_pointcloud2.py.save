@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import rospy
+import ros_numpy
+from sensor_msgs.msg import PointCloud2
+
+def callback_print_points(msg):
+    rospy.loginfo("Message received")
+    xyz_array = ros_numpy.point_cloud2.pointcloud2_to_xyz_array(msg)
+    rospy.loginfo(xyz_array)
+    #rospy.loginfo(msg)
+
+if __name__ == '__main__':
+    rospy.init_node('lidar')
+
+    bag_subscriber = rospy.Subscriber("/velodyne_points", PointCloud2, callback_print_points)
+    
+    rospy.spin()
+
+
+
