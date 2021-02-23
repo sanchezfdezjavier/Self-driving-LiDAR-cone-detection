@@ -14,6 +14,8 @@
  To __install the dependencies__, you only need to __clone them into the src folder__.
  If you want to use __catkin simple__(recommended) instead of ` catkin_make `.
  Compile using your favorite catkin build tool (i.e ` catkin build `).
+ 
+ If you are getting an __error while compiling__ saying that you have missing a ` logging.h ` file, you must __install__ locally in your computer the Google __glog__ library by doing: ` sudo apt-get install libgoogle-glog-dev `.
 
 ### Launch instructions
 
