@@ -16,6 +16,8 @@
  Compile using your favorite catkin build tool (i.e ` catkin build `).
  
  If you are getting an __error while compiling__ saying that you have missing a ` logging.h ` file, you must __install__ locally in your computer the Google __glog__ library by doing: ` sudo apt-get install libgoogle-glog-dev `.
+ 
+At this point you should have it all ready to use!
 
 ### Launch instructions
 
