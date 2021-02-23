@@ -1,0 +1,5 @@
+my_robot_bringup
+/home/javier/ROS_course/devel/.private/my_robot_bringup/cmake.lock /home/javier/ROS_course/devel/./cmake.lock
+/home/javier/ROS_course/devel/.private/my_robot_bringup/share/my_robot_bringup/cmake/my_robot_bringupConfig-version.cmake /home/javier/ROS_course/devel/share/my_robot_bringup/cmake/my_robot_bringupConfig-version.cmake
+/home/javier/ROS_course/devel/.private/my_robot_bringup/share/my_robot_bringup/cmake/my_robot_bringupConfig.cmake /home/javier/ROS_course/devel/share/my_robot_bringup/cmake/my_robot_bringupConfig.cmake
+/home/javier/ROS_course/devel/.private/my_robot_bringup/lib/pkgconfig/my_robot_bringup.pc /home/javier/ROS_course/devel/lib/pkgconfig/my_robot_bringup.pc
