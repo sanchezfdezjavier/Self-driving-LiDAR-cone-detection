@@ -1,6 +1,0 @@
-linefit_ground_segmentation/linefit_ground_segmentation
-/home/javier/ROS_course/devel/.private/linefit_ground_segmentation/cmake.lock /home/javier/ROS_course/devel/./cmake.lock
-/home/javier/ROS_course/devel/.private/linefit_ground_segmentation/share/linefit_ground_segmentation/cmake/linefit_ground_segmentationConfig-version.cmake /home/javier/ROS_course/devel/share/linefit_ground_segmentation/cmake/linefit_ground_segmentationConfig-version.cmake
-/home/javier/ROS_course/devel/.private/linefit_ground_segmentation/share/linefit_ground_segmentation/cmake/linefit_ground_segmentationConfig.cmake /home/javier/ROS_course/devel/share/linefit_ground_segmentation/cmake/linefit_ground_segmentationConfig.cmake
-/home/javier/ROS_course/devel/.private/linefit_ground_segmentation/lib/liblinefit_ground_segmentation.so /home/javier/ROS_course/devel/lib/liblinefit_ground_segmentation.so
-/home/javier/ROS_course/devel/.private/linefit_ground_segmentation/lib/pkgconfig/linefit_ground_segmentation.pc /home/javier/ROS_course/devel/lib/pkgconfig/linefit_ground_segmentation.pc

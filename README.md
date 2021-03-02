@@ -12,8 +12,9 @@
   * https://github.com/ethz-asl/glog_catkin.git
   
  To __install the dependencies__, you only need to __clone them into the src folder__.
- If you want to use __catkin simple__(recommended) instead of ` catkin_make `.
- Compile using your favorite catkin build tool (i.e ` catkin build `).
+ 
+If you want to use __catkin simple__(recommended) instead of ` catkin_make `, you must to have installed ` catkin_tools `, if you don't have it yet, you can   install it here: https://catkin-tools.readthedocs.io/en/latest/installing.html
+Compile using your favorite catkin build tool (i.e ` catkin build `).
  
  If you are getting an __error while compiling__ saying that you have missing a ` logging.h ` file, you must __install__ locally in your computer the Google __glog__ library by doing: ` sudo apt-get install libgoogle-glog-dev `.
  
@@ -21,10 +22,13 @@ At this point you should have it all ready to use!
 
 ### Launch instructions
 
-The ground segmentation ROS node can be launch by executing `roslaunch linefit_ground_segmentation_ros segmentation.launch`.
-Input and output topic names can be specified in the same file.
+The ground segmentation ROS node can be launch by executing `roslaunch linefit_ground_segmentation_ros segmentation.launch`. Input and output topic names can be specified in the same file.
 
-Getting up and running with your own point cloud source should be as simple as:
+If you get an __error while running the command above__, you maybe forget to __re-source__ the __setup file__ inside the ` devel ` folder in your catkin workspace root directory. This setup folder is either ` setup.bash `, or ` setup.zsh ` if you are using zsh instead of bash(default).
+
+You can do it by running the following command: ` source setup.bash ` or ` source setup.zsh `.
+
+Getting up and running with __your own point cloud__ source should be as simple as:
 
 1. Change the `input_topic` parameter in `segmentation.launch` to your topic.
 2. Adjust the `sensor_height` parameter in `segmentation_params.yaml` to the height where the sensor is mounted on your robot (e.g. KITTI Velodyne: 1.8m)

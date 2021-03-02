@@ -1,5 +1,0 @@
-src
-/home/javier/ROS_course/devel/.private/my_robot_tutorials/cmake.lock /home/javier/ROS_course/devel/./cmake.lock
-/home/javier/ROS_course/devel/.private/my_robot_tutorials/share/my_robot_tutorials/cmake/my_robot_tutorialsConfig.cmake /home/javier/ROS_course/devel/share/my_robot_tutorials/cmake/my_robot_tutorialsConfig.cmake
-/home/javier/ROS_course/devel/.private/my_robot_tutorials/share/my_robot_tutorials/cmake/my_robot_tutorialsConfig-version.cmake /home/javier/ROS_course/devel/share/my_robot_tutorials/cmake/my_robot_tutorialsConfig-version.cmake
-/home/javier/ROS_course/devel/.private/my_robot_tutorials/lib/pkgconfig/my_robot_tutorials.pc /home/javier/ROS_course/devel/lib/pkgconfig/my_robot_tutorials.pc
