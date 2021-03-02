@@ -15,7 +15,6 @@ def callback_print_points(msg):
     scaled_array = scaled_array[scaled_array['y'] > -4]
     pc2_to_record_to_pc2 = ros_numpy.point_cloud2.array_to_pointcloud2(scaled_array, frame_id='velodyne')
     bag_publisher.publish(pc2_to_record_to_pc2)
-    bag_aux_publisher.publish(scaled_array)
     rospy.loginfo(record_array)
     #rospy.loginfo(msg)
 
@@ -26,7 +25,6 @@ if __name__ == '__main__':
 
     bag_subscriber = rospy.Subscriber("/velodyne_points", PointCloud2, callback_print_points)
     bag_publisher = rospy.Publisher("/prefiltered_points", PointCloud2, queue_size=1)
-    bag_aux_publisher = rospy.Publisher("/to_record_points", ndarray, queue_size=1)
 
     rate = rospy.Rate(10)
     rospy.spin()
