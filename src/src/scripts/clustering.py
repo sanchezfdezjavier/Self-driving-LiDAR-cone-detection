@@ -17,15 +17,16 @@ from sklearn.preprocessing import StandardScaler
 import random
 
 
-def publish_markers(cluster_idxs, raw_points):
+    
+def publish_markers(cluster_idxs, idxs_by_cluster, nparray_obstacle_xy):
     # marker storage for each instance
     marker_array = MarkerArray()
-    
-    print(len(cluster_idxs), "number of clusters")
     # marker creation for each cluster
     timestamp = rospy.Time.now()
+    rospy.loginfo(idxs_by_cluster[0][-1])
 
     for id, idx in enumerate(cluster_idxs):
+        #eureka = idxs_by_cluster[0][-1]
         marker = Marker()
         marker.header.frame_id = "/velodyne"
         marker.header.stamp = timestamp
@@ -42,16 +43,16 @@ def publish_markers(cluster_idxs, raw_points):
         marker.color.g = 1.0
         marker.color.b = 0.0
         marker.pose.orientation.w = 1.0
-        marker.pose.position.x = raw_points[idx][0]
-        marker.pose.position.y = raw_points[idx][1]
+        marker.pose.position.x = nparray_obstacle_xy[idxs_by_cluster[idx][-1]][0]
+        marker.pose.position.y = nparray_obstacle_xy[idxs_by_cluster[idx][-1]][1]
+        #print("Start----------------------")
+        #rospy.loginfo(nparray_obstacle_xy[idx])
         marker.pose.position.z = 0
 
         marker_array.markers.append(marker)
 
-    print(len(marker_array.markers), "Number of markers created")
     # pubish the marker array to rviz
-    publisher_rviz_markers.publish(marker_array)
-    marker_array  
+    publisher_rviz_markers.publish(marker_array) 
     
 
 def remove_field_num(a, i):
@@ -62,20 +63,20 @@ def remove_field_num(a, i):
     return b
 
 def preprocessing(msg):
-    ndarray_points = rnp.point_cloud2.pointcloud2_to_array(msg)
-    new_points = remove_field_num(ndarray_points, 2)
+    starray_obstacle_xyz = rnp.point_cloud2.pointcloud2_to_array(msg)
+    starray_obstacle_xy = remove_field_num(starray_obstacle_xyz, 2)
     # np structured array to nparray
-    array = new_points.view(np.float32).reshape(new_points.shape + (-1,))
-    # print(array[0])
-    # print(array.shape)
-    return array, ndarray_points
+    nparray_obstacle_xy = starray_obstacle_xy.view(np.float32).reshape(starray_obstacle_xy.shape + (-1,))
+    # print(nparray_obstacle_xy[0])
+    # print(nparray_obstacle_xy.shape)
+    return nparray_obstacle_xy, starray_obstacle_xyz
 
 
 def clustering(msg):
-    raw_points, ndarray_points = preprocessing(msg)
+    nparray_obstacle_xy, starray_obstacle_xyz = preprocessing(msg)
 
     #Compute DBSCAN
-    db = DBSCAN(eps=0.4, min_samples=4).fit(raw_points)
+    db = DBSCAN(eps=0.8, min_samples=3).fit(nparray_obstacle_xy)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
     core_samples_mask[db.core_sample_indices_] = True
     labels = db.labels_
@@ -97,7 +98,8 @@ def clustering(msg):
     for k in clusters_keys:
         cone_idx_pseudopositions.append(idxs_by_cluster[k][-1])
 
-    publish_markers(clusters_keys, ndarray_points)
+    # aqui esta el puto fallo joder
+    publish_markers(clusters_keys, idxs_by_cluster, nparray_obstacle_xy)
 
     # Number of points in cluster
     #print(len(idxs_by_cluster[n_clusters_ -1]))
@@ -110,5 +112,5 @@ if __name__ == '__main__':
     publisher_rviz_markers = rospy.Publisher('visualization_marker_array', MarkerArray, queue_size=1)
 #   bag_publisher = rospy.Publisher("clustered_points", PointCloud2, queue_size=1)
 
-    rate = rospy.Rate(10)
+    #rate = rospy.Rate(10)
     rospy.spin()
