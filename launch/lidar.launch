@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- <param name="" type="" value="" /> -->
+    <!-- Loads params defined in lidar_params.yaml -->
+    <!-- <rosparam command="load" file="$(find package_name)/lidar_params.yaml" -->
+    <!-- <node pkg="" type="" name="" /> -->
+    <!-- <node pkg="linefit_ground_segmentation_ros" type="node" name="" /> -->
+    <!--Runs ground segmentation package launchfile-->
+    <include file="$(find linefit_ground_segmentation_ros)/launch/segmentation.launch"/>
+
+</launch>
