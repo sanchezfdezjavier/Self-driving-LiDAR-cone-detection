@@ -21,7 +21,7 @@ def prefilter(msg):
 
 
 if __name__ == '__main__':
-    rospy.init_node('lidar')
+    rospy.init_node('prefiltering')
 
     bag_subscriber = rospy.Subscriber("/velodyne_points", PointCloud2, prefilter)
     bag_publisher = rospy.Publisher("/prefiltered_points", PointCloud2, queue_size=1)
