@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <node name="prefiltering" pkg="lidar_nodes" type="input_and_prefilter.py" output="screen"/>
+    <node name="clustering" pkg="lidar_nodes" type="clustering.py" output="screen"/>
+    <!-- Ground filtering -->
+    <include file="$(find linefit_ground_segmentation_ros)/launch/segmentation.launch"/>
+
+</launch>

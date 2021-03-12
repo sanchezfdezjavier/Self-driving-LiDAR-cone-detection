@@ -1,9 +1,0 @@
-author: Javier Sanchez Fernandez
-
-# Clustering
-min_points_in_cluster: 4
-epsilon: 0.4
-
-# Ground Filtering defined in package -> linefit_ground_segmentation_ros/launch/segmentation_params.yaml
-
-# Prefilter(distance, azimuth, height, etc.)
