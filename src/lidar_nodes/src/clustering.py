@@ -66,7 +66,7 @@ def publish_markers(idxs_by_cluster, nparray_obstacle_xy, starray_obstacle_xyz):
     marker_array = MarkerArray()
     timestamp = rospy.Time.now()
     marker_array.markers.append(get_LiDAR_marker(timestamp))
-
+	
     marker_array.markers.append(get_marker(timestamp, 100, 5, 0, 0, 1, 0, 0, 0.5))
     marker_array.markers.append(get_marker(timestamp, 101, 10, 0, 0, 1, 0, 0, 0.5))
     marker_array.markers.append(get_marker(timestamp, 111, 8, 0, 0, 1, 0, 0, 0.5))
