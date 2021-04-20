@@ -1,39 +1,38 @@
 # Lidar
 
+## Requirements
+You should have:
+* Ubuntu 18.04
+* ROS melodic installed
+
 ## How to start using this repo?
-* This code is supposed to work in ROS melodic with catkin. If you don't have it already, you must install it and come back later.
 * The root folder of this repository is supposed to be your catkin workspace.
 
-### Installation
+### Installation and Setup
 1. __Clone__ the repository and either source the new folder called "lidar" or change the name to your existing catkin workspace directory name.
-2. __Install the necessary dependencies__:
-  * https://github.com/lorenwel/linefit_ground_segmentation.git
+2. __Install the necessary ros packages__ by cloning them into the src folder:
   * https://github.com/catkin/catkin_simple.git
   * https://github.com/ethz-asl/glog_catkin.git
-  
- To __install the dependencies__, you only need to __clone them into the src folder__.
- 
-If you want to use __catkin simple__(recommended) instead of ` catkin_make `, you must to have installed ` catkin_tools `, if you don't have it yet, you can   install it here: https://catkin-tools.readthedocs.io/en/latest/installing.html
-Compile using your favorite catkin build tool (i.e ` catkin build `).
- 
- If you are getting an __error while compiling__ saying that you have missing a ` logging.h ` file, you must __install__ locally in your computer the Google __glog__ library by doing: ` sudo apt-get install libgoogle-glog-dev `.
- 
-At this point you should have it all ready to use!
+3. __Install glog__: `sudo apt-get install libgoogle-glog-dev`
+4. __Install velodyne depencencies for ROS__: `sudo apt-get install ros-melodic-velodyne`
+5. __Install ros-numpy__: `sudo apt-get install ros-melodic-ros-numpy`
+6. __Install scikit-learn__: `pip install -U scikit-learn`
+7. **Build** with `catkin_make`
+8. **Source the setup** file by running: `source ~/<catkin_workspace_name>/devel/source.bash`. If you are using zsh instead of bash run: `source ~/<catkin_workspace_name/devel/source.zsh`
 
 ### Launch instructions
 
-The ground segmentation ROS node can be launch by executing `roslaunch linefit_ground_segmentation_ros segmentation.launch`. Input and output topic names can be specified in the same file.
-
-If you get an __error while running the command above__, you maybe forget to __re-source__ the __setup file__ inside the ` devel ` folder in your catkin workspace root directory. This setup folder is either ` setup.bash `, or ` setup.zsh ` if you are using zsh instead of bash(default).
-
-You can do it by running the following command: ` source setup.bash ` or ` source setup.zsh `.
+To launch the whole environment run: `roslaunch lidar_nodes lidar.launch`.
 
 Getting up and running with __your own point cloud__ source should be as simple as:
 
-1. Change the `input_topic` parameter in `segmentation.launch` to your topic.
+1. Change the `input_topic` parameter in `segmentation.launch` to your topic.**(Already configured, change only if you want to run your custom setup)**
 2. Adjust the `sensor_height` parameter in `segmentation_params.yaml` to the height where the sensor is mounted on your robot (e.g. KITTI Velodyne: 1.8m)
 
-### Parameter description
+### Visualize the data
+To do
+
+### Ground segmentation parameter description
 
 Parameters are set in `linefit_ground_segmentation_ros/launch/segmentation_params.yaml`
 
