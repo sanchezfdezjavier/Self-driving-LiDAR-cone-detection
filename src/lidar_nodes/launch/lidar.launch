@@ -2,9 +2,13 @@
 
 <launch>
 
+    <!-- Velodyne nodes  roslaunch velodyne_pointcloud VLP16_points.launch-->
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+    <!-- Initial filters -->
     <node name="prefiltering" pkg="lidar_nodes" type="input_and_prefilter.py" output="screen"/>
+    <!-- Clustering -->
     <node name="clustering" pkg="lidar_nodes" type="clustering.py" output="screen"/>
     <!-- Ground filtering -->
     <include file="$(find linefit_ground_segmentation_ros)/launch/segmentation.launch"/>
 
-</launch>
+</launch> 
