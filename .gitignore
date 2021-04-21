@@ -41,6 +41,9 @@ devel_isolated/
 .project
 .cproject
 
+# VScode stuff
+.vscode
+
 # qcreator stuff
 CMakeLists.txt.user
 
