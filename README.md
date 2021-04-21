@@ -30,7 +30,13 @@ Getting up and running with __your own point cloud__ source should be as simple 
 2. Adjust the `sensor_height` parameter in `segmentation_params.yaml` to the height where the sensor is mounted on your robot (e.g. KITTI Velodyne: 1.8m)
 
 ### Visualize the data
-To do
+1. Open RVIZ with the frame set to _velodyne_: `rosrun rviz rviz -f velodyne`
+2. Click the **add** button and choose the topic you want to listen to:
+* `/velodyne_points`: raw points captured by the lidar.
+* `/prefiltered_points`: Remaining points after filters(depth, azimuth, etc.)
+* `/ground_cloud`: Ground points.
+* `/obstacle_cloud`: Cone pointcloud.
+* `/visualization_marker`: Detected cones.
 
 ### Ground segmentation parameter description
 
