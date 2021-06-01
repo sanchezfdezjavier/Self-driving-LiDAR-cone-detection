@@ -156,7 +156,11 @@ def preprocessing(msg):
 def publish_to_perception(pose_array):
     publisher_perception.publish(pose_array)
 
+#TODO: Remove increment_snapshot_counter call
 def clustering(msg):
+
+    increment_snapshot_counter()
+
     timestamp, nparray_obstacle_xy, starray_obstacle_xyz = preprocessing(msg)
 
     # Compute DBSCAN
@@ -188,6 +192,15 @@ def clustering(msg):
 
     # Number of points in cluster
     # n_points_cluster = len(idxs_by_cluster[n_clusters_ -1])
+    
+
+#TODO: Remove global variable before testing
+global_snapshot_counter = 0
+
+def increment_snapshot_counter():
+    global global_snapshot_counter
+    global_snapshot_counter = global_snapshot_counter + 1
+    rospy.loginfo(global_snapshot_counter)
 
 if __name__ == '__main__':
     rospy.init_node('clustering')
