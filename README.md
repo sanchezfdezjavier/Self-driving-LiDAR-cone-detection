@@ -1,11 +1,22 @@
-# Lidar
+# LiDAR cone detection algorithm
+<div style="margin-top: -20px">
+  <p align="center">
+    <img src="assets/preview.png">
+  </p>
+</div>
+
+<p align="center">
+  <img src="assets/pipeline.png">
+</p>
 
 ## Requirements
 
 You should have:
 
-- Ubuntu 18.04
+- `Ubuntu 18.04
 - ROS melodic installed
+
+⚠️ Tested with Velodyne's `VLP-16` LiDAR.
 
 ## How to start using this repo?
 
@@ -36,6 +47,8 @@ Getting up and running with **your own point cloud** source should be as simple 
 2. Adjust the `sensor_height` parameter in `segmentation_params.yaml` to the height where the sensor is mounted on your robot (e.g. KITTI Velodyne: 1.8m)
 
 ### Visualize the data
+
+![Rviz setup](assets/rviz.png)
 
 1. Open RVIZ with the frame set to _velodyne_: `rosrun rviz rviz -f velodyne`
 2. Click the **add** button and choose the topic you want to listen to:
@@ -77,4 +90,4 @@ The default parameters should work on the KITTI dataset.
 
 - **n_threads** Number of threads to use.
 - **latch** Latch output point clouds in ROS node.
-- **visualize** Visualize the segmentation result. :warning: **ONLY FOR DEBUGGING.** Do not activate during operation.
+- **visualize** Visualize the segmentation result. :warning: **only for development and debugging, don't use during operation.**
