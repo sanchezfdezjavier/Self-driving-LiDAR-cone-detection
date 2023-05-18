@@ -13,8 +13,8 @@
 
 You should have:
 
-- `Ubuntu 18.04
-- ROS melodic installed
+- Ubuntu `18.04` (Should work with latest versions).
+- ROS melodic.
 
 ⚠️ Tested with Velodyne's `VLP-16` LiDAR.
 
